@@ -1,4 +1,4 @@
-name: Build DonutSMP Plugin
+name: Build Plugin
 on: [push, pull_request]
 jobs:
   build:
@@ -13,8 +13,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean package
+      working-directory: Frostingsmp_Project     # <--- Add this line!
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: DonutSMPCore-1.0.0
-        path: target/*.jar
+        name: DonutSMPCore
+        path: Frostingsmp_Project/target/*.jar  # <--- Point to the target folder inside it
