@@ -11,11 +11,15 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn clean package
-      working-directory: Frostingsmp_Project     # <--- Add this line!
+    - name: Find pom.xml and Build with Maven
+      run: |
+        # Automatically locate the folder containing pom.xml and run maven there
+        POM_DIR=$(dirname $(find . -name "pom.xml" -not -path "*/.*"))
+        echo "Found pom.xml in directory: $POM_DIR"
+        cd "$POM_DIR"
+        mvn clean package
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: DonutSMPCore
-        path: Frostingsmp_Project/target/*.jar  # <--- Point to the target folder inside it
+        name: DonutSMPCore-Jar
+        path: "**/target/*.jar"
