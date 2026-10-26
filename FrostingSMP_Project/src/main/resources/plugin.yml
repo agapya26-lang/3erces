@@ -1,0 +1,40 @@
+name: FrostingSMP
+version: 1.0.0
+main: com.frostingsmp.FrostingSMP
+api-version: 1.20
+authors: [FrostingSMP Team]
+description: Ultimate Donut-style Survival Anarchy Plugin with custom LanternLight mechanics.
+
+commands:
+  spawn:
+    description: Teleport to the safe spawn area.
+    permission: frostingsmp.command.spawn
+  setspawn:
+    description: Set the server spawn point.
+    permission: frostingsmp.admin.setspawn
+  rtp:
+    description: Teleport to a random safe wild location.
+    permission: frostingsmp.command.rtp
+  ah:
+    description: Open the custom Auction House.
+    permission: frostingsmp.command.ah
+  sell:
+    description: Sell an item to the Auction House.
+    permission: frostingsmp.command.ah.sell
+  bounty:
+    description: Place or view bounties on players.
+    permission: frostingsmp.command.bounty
+  lantern:
+    description: Open the Lantern Light Essence Shop & Crafting.
+    permission: frostingsmp.command.lantern
+  acproof:
+    description: View logged cheating proof frames for a player.
+    permission: frostingsmp.admin.anticheat
+
+permissions:
+  frostingsmp.admin.setspawn:
+    default: op
+  frostingsmp.admin.anticheat:
+    default: op
+  frostingsmp.admin.bypass:
+    default: op
